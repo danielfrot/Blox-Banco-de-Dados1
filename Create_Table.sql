@@ -1,34 +1,3 @@
-# https://remotemysql.com/phpmyadmin/db_sql.php?db=502IcakKEF
-# Usuário: 502IcakKEF
-# Senha: 0RWVKydei3
--- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `502IcakKEF` DEFAULT CHARACTER SET utf8 ;
-SHOW WARNINGS;
-
-USE `502IcakKEF` ;
-DROP TABLE IF EXISTS `Escala de Serviço`;
-DROP TABLE IF EXISTS `Cargos`;
-DROP TABLE IF EXISTS `Usuarios`;
-DROP TABLE IF EXISTS `Comissao`;
-DROP TABLE IF EXISTS `Servidor`;
-DROP TABLE IF EXISTS `Processo_Disciplinar`;
-DROP TABLE IF EXISTS `Advogado`;
-DROP TABLE IF EXISTS `Acusado`;
-DROP TABLE IF EXISTS `Assunto`;
-DROP TABLE IF EXISTS `Requerimentos`;
-DROP TABLE IF EXISTS `Acusado_has_Processo_Disciplinar`;
-DROP TABLE IF EXISTS `Acusado_has_Advogado`;
-DROP TABLE IF EXISTS `Processo_Disciplinar_has_Assunto`;
-DROP TABLE IF EXISTS `Testemunha`;
-DROP TABLE IF EXISTS `Audiencia`;
-DROP TABLE IF EXISTS `Testemunha_has_Audiencia`;
-DROP TABLE IF EXISTS `Processo_Disciplinar_has_Audiencia`;
-DROP TABLE IF EXISTS `Processo_Disciplinar_has_Testemunha`;
-DROP TABLE IF EXISTS `Acusado_has_Audiencia`;
-DROP TABLE IF EXISTS `Comissao_has_Audiencia`;
-
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Cargos`
 -- -----------------------------------------------------
@@ -44,7 +13,6 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Cargos` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 CREATE INDEX `fk_Cargos_Cargos1_idx` ON `502IcakKEF`.`Cargos` (`idCargos_pai` ASC) VISIBLE;
 
 -- -----------------------------------------------------
@@ -57,17 +25,15 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Usuarios` (
   PRIMARY KEY (`idUsuarios`))
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Comissao`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Comissao` (
   `idComissao` INT NOT NULL AUTO_INCREMENT,
-  `Membros` VARCHAR(45) NULL,
+  `Comissao` VARCHAR(45) NULL,
   `Funcao` VARCHAR(45) NULL,
   PRIMARY KEY (`idComissao`))
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Servidor`
@@ -76,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Servidor` (
   `idServidor` INT NOT NULL AUTO_INCREMENT,
   `Nome` VARCHAR(45) NULL,
   `Matricula` VARCHAR(45) NULL,
-  `Escala de Serviço` VARCHAR(45) NULL,
+  `Escala de Servico` VARCHAR(45) NULL,
   `Cargos_idCargos` INT NOT NULL,
   `Usuarios_idUsuarios` INT NOT NULL,
   `Comissao_idComissao` INT NOT NULL,
@@ -99,13 +65,9 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Servidor` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 CREATE INDEX `fk_Servidor_Cargos1_idx` ON `502IcakKEF`.`Servidor` (`Cargos_idCargos` ASC) VISIBLE;
-
 CREATE INDEX `fk_Servidor_Usuarios1_idx` ON `502IcakKEF`.`Servidor` (`Usuarios_idUsuarios` ASC) VISIBLE;
-
 CREATE INDEX `fk_Servidor_Comissao1_idx` ON `502IcakKEF`.`Servidor` (`Comissao_idComissao` ASC) VISIBLE;
-
 
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Processo_Disciplinar`
@@ -128,13 +90,9 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Processo_Disciplinar` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 CREATE INDEX `fk_Processo_Disciplinar_Comissao1_idx` ON `502IcakKEF`.`Processo_Disciplinar` (`Comissao_idComissao` ASC) VISIBLE;
-
 CREATE UNIQUE INDEX `Numero_PADI_UNIQUE` ON `502IcakKEF`.`Processo_Disciplinar` (`Numero_PADI` ASC) VISIBLE;
-
 CREATE UNIQUE INDEX `Processo_SEI_UNIQUE` ON `502IcakKEF`.`Processo_Disciplinar` (`Processo_SEI` ASC) VISIBLE;
-
 
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Advogado`
@@ -155,11 +113,8 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Advogado` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 CREATE UNIQUE INDEX `OAB_UNIQUE` ON `502IcakKEF`.`Advogado` (`OAB` ASC) VISIBLE;
-
 CREATE INDEX `fk_Advogado_Usuarios1_idx` ON `502IcakKEF`.`Advogado` (`Usuarios_idUsuarios` ASC) VISIBLE;
-
 
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Acusado`
@@ -175,7 +130,6 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Acusado` (
   PRIMARY KEY (`idAcusado`))
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Assunto`
 -- -----------------------------------------------------
@@ -185,7 +139,6 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Assunto` (
   `Descricao` VARCHAR(45) NULL,
   PRIMARY KEY (`idAssunto`))
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Requerimentos`
@@ -197,7 +150,6 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Requerimentos` (
   `Data` DATE NULL,
   PRIMARY KEY (`idtable1`))
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Acusado_has_Processo_Disciplinar`
@@ -217,11 +169,8 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Acusado_has_Processo_Disciplinar` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 CREATE INDEX `fk_Acusado_has_Processo_Disciplinar_Processo_idx` ON `502IcakKEF`.`Acusado_has_Processo_Disciplinar` (`Processo_Disciplinar_idProcesso_Disciplinar` ASC) VISIBLE;
-
 CREATE INDEX `fk_Acusado_has_Processo_Disciplinar_Acusado1_idx` ON `502IcakKEF`.`Acusado_has_Processo_Disciplinar` (`Acusado_idAcusado` ASC) VISIBLE;
-
 
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Acusado_has_Advogado`
@@ -241,11 +190,8 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Acusado_has_Advogado` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 CREATE INDEX `fk_Acusado_has_Advogado_Advogado1_idx` ON `502IcakKEF`.`Acusado_has_Advogado` (`Advogado_idAdvogado` ASC) VISIBLE;
-
 CREATE INDEX `fk_Acusado_has_Advogado_Acusado1_idx` ON `502IcakKEF`.`Acusado_has_Advogado` (`Acusado_idAcusado` ASC) VISIBLE;
-
 
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Processo_Disciplinar_has_Assunto`
@@ -265,22 +211,18 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Processo_Disciplinar_has_Assunto` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 CREATE INDEX `fk_Processo_Disciplinar_has_Assunto_Assunto1_idx` ON `502IcakKEF`.`Processo_Disciplinar_has_Assunto` (`Assunto_idAssunto` ASC) VISIBLE;
-
 CREATE INDEX `fk_Processo_Disciplinar_has_Assunto_Processo_idx` ON `502IcakKEF`.`Processo_Disciplinar_has_Assunto` (`Processo_Disciplinar_idProcesso_Disciplinar` ASC) VISIBLE;
-
 
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Testemunha`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Testemunha` (
   `idTestemunha` INT NOT NULL AUTO_INCREMENT,
-  `Testemunhacol` VARCHAR(45) NULL,
-  `Servidor` VARCHAR(45) NULL,
+  `Testemunha` VARCHAR(45) NOT NULL,
+  `Matricula` VARCHAR(45) NULL,
   PRIMARY KEY (`idTestemunha`))
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Audiencia`
@@ -291,7 +233,6 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Audiencia` (
   `Realizada` TINYINT NULL,
   PRIMARY KEY (`idAudiencia`))
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Testemunha_has_Audiencia`
@@ -311,11 +252,8 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Testemunha_has_Audiencia` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 CREATE INDEX `fk_Testemunha_has_Audiencia_Audiencia1_idx` ON `502IcakKEF`.`Testemunha_has_Audiencia` (`Audiencia_idAudiencia` ASC) VISIBLE;
-
 CREATE INDEX `fk_Testemunha_has_Audiencia_Testemunha1_idx` ON `502IcakKEF`.`Testemunha_has_Audiencia` (`Testemunha_idTestemunha` ASC) VISIBLE;
-
 
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Processo_Disciplinar_has_Testemunha`
@@ -335,11 +273,8 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Processo_Disciplinar_has_Testemunha` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 CREATE INDEX `fk_Testemunha_has_Processo_Disciplinar_Proce_idx` ON `502IcakKEF`.`Processo_Disciplinar_has_Testemunha` (`Processo_Disciplinar_idProcesso_Disciplinar` ASC) VISIBLE;
-
 CREATE INDEX `fk_Testemunha_has_Processo_Disciplinar_Teste_idx` ON `502IcakKEF`.`Processo_Disciplinar_has_Testemunha` (`Testemunha_idTestemunha` ASC) VISIBLE;
-
 
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Processo_Disciplinar_has_Audiencia`
@@ -359,11 +294,8 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Processo_Disciplinar_has_Audiencia` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 CREATE INDEX `fk_Processo_Disciplinar_has_Audiencia1_Audi_idx` ON `502IcakKEF`.`Processo_Disciplinar_has_Audiencia` (`Audiencia_idAudiencia` ASC) VISIBLE;
-
 CREATE INDEX `fk_Processo_Disciplinar_has_Audiencia1_Proc_idx` ON `502IcakKEF`.`Processo_Disciplinar_has_Audiencia` (`Processo_Disciplinar_idProcesso_Disciplinar` ASC) VISIBLE;
-
 
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Acusado_has_Audiencia`
@@ -383,11 +315,8 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Acusado_has_Audiencia` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 CREATE INDEX `fk_Acusado_has_Audiencia_Audiencia1_idx` ON `502IcakKEF`.`Acusado_has_Audiencia` (`Audiencia_idAudiencia` ASC) VISIBLE;
-
 CREATE INDEX `fk_Acusado_has_Audiencia_Acusado1_idx` ON `502IcakKEF`.`Acusado_has_Audiencia` (`Acusado_idAcusado` ASC) VISIBLE;
-
 
 -- -----------------------------------------------------
 -- Table `502IcakKEF`.`Comissao_has_Audiencia`
@@ -407,58 +336,5 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Comissao_has_Audiencia` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 CREATE INDEX `fk_Comissao_has_Audiencia_Audiencia1_idx` ON `502IcakKEF`.`Comissao_has_Audiencia` (`Audiencia_idAudiencia` ASC) VISIBLE;
-
 CREATE INDEX `fk_Comissao_has_Audiencia_Comissao1_idx` ON `502IcakKEF`.`Comissao_has_Audiencia` (`Comissao_idComissao` ASC) VISIBLE;
-
-
--- -----------------------------------------------------
--- Data for table `502IcakKEF`.`Cargos`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `502IcakKEF`;
-INSERT INTO `502IcakKEF`.`Cargos` (`idCargos`, `idCargos_pai`, `Cargos`, `Descricao`) VALUES (DEFAULT, NULL, 'Governador', 'cargo máximo do Estado');
-INSERT INTO `502IcakKEF`.`Cargos` (`idCargos`, `idCargos_pai`, `Cargos`, `Descricao`) VALUES (DEFAULT, NULL, 'Secretário de Estado', 'cargo máximo de uma secretaria');
-INSERT INTO `502IcakKEF`.`Cargos` (`idCargos`, `idCargos_pai`, `Cargos`, `Descricao`) VALUES (DEFAULT, NULL, 'Coordenador', NULL);
-INSERT INTO `502IcakKEF`.`Cargos` (`idCargos`, `idCargos_pai`, `Cargos`, `Descricao`) VALUES (DEFAULT, NULL, 'Gerente Regional', NULL);
-INSERT INTO `502IcakKEF`.`Cargos` (`idCargos`, `idCargos_pai`, `Cargos`, `Descricao`) VALUES (DEFAULT, NULL, 'Diretor Geral', NULL);
-INSERT INTO `502IcakKEF`.`Cargos` (`idCargos`, `idCargos_pai`, `Cargos`, `Descricao`) VALUES (DEFAULT, NULL, 'Diretor de Segurança', NULL);
-INSERT INTO `502IcakKEF`.`Cargos` (`idCargos`, `idCargos_pai`, `Cargos`, `Descricao`) VALUES (DEFAULT, NULL, 'Chefe de Plantão', NULL);
-INSERT INTO `502IcakKEF`.`Cargos` (`idCargos`, `idCargos_pai`, `Cargos`, `Descricao`) VALUES (DEFAULT, NULL, 'Comissariado', NULL);
-INSERT INTO `502IcakKEF`.`Cargos` (`idCargos`, `idCargos_pai`, `Cargos`, `Descricao`) VALUES (DEFAULT, NULL, 'Armeiro', NULL);
-INSERT INTO `502IcakKEF`.`Cargos` (`idCargos`, `idCargos_pai`, `Cargos`, `Descricao`) VALUES (DEFAULT, NULL, 'Plantonista', '');
-INSERT INTO `502IcakKEF`.`Cargos` (`idCargos`, `idCargos_pai`, `Cargos`, `Descricao`) VALUES (DEFAULT, NULL, 'Núcleo de PADI', NULL);
-INSERT INTO `502IcakKEF`.`Cargos` (`idCargos`, `idCargos_pai`, `Cargos`, `Descricao`) VALUES (DEFAULT, NULL, 'Presidente de Comissão', NULL);
-INSERT INTO `502IcakKEF`.`Cargos` (`idCargos`, `idCargos_pai`, `Cargos`, `Descricao`) VALUES (DEFAULT, NULL, 'Membros de Comissão', NULL);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `502IcakKEF`.`Servidor`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `502IcakKEF`;
-INSERT INTO `502IcakKEF`.`Servidor` (`idServidor`, `Nome`, `Matricula`, `Escala de Serviço`, `Cargos_idCargos`, `Usuarios_idUsuarios`, `Comissao_idComissao`, `Sexo`, `Cidade`) VALUES (DEFAULT, 'Alex', '300456816', 'A', DEFAULT, DEFAULT, DEFAULT, NULL, NULL);
-INSERT INTO `502IcakKEF`.`Servidor` (`idServidor`, `Nome`, `Matricula`, `Escala de Serviço`, `Cargos_idCargos`, `Usuarios_idUsuarios`, `Comissao_idComissao`, `Sexo`, `Cidade`) VALUES (DEFAULT, 'Gustavo', '300554667', 'A', DEFAULT, DEFAULT, DEFAULT, NULL, NULL);
-INSERT INTO `502IcakKEF`.`Servidor` (`idServidor`, `Nome`, `Matricula`, `Escala de Serviço`, `Cargos_idCargos`, `Usuarios_idUsuarios`, `Comissao_idComissao`, `Sexo`, `Cidade`) VALUES (DEFAULT, 'Bruno', '300545267', 'B', DEFAULT, DEFAULT, DEFAULT, NULL, NULL);
-INSERT INTO `502IcakKEF`.`Servidor` (`idServidor`, `Nome`, `Matricula`, `Escala de Serviço`, `Cargos_idCargos`, `Usuarios_idUsuarios`, `Comissao_idComissao`, `Sexo`, `Cidade`) VALUES (DEFAULT, 'Felipe', '300451919', 'C', DEFAULT, DEFAULT, DEFAULT, NULL, NULL);
-INSERT INTO `502IcakKEF`.`Servidor` (`idServidor`, `Nome`, `Matricula`, `Escala de Serviço`, `Cargos_idCargos`, `Usuarios_idUsuarios`, `Comissao_idComissao`, `Sexo`, `Cidade`) VALUES (DEFAULT, 'Davi', '300017995', 'D', DEFAULT, DEFAULT, DEFAULT, NULL, NULL);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `502IcakKEF`.`Advogado`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `502IcakKEF`;
-INSERT INTO `502IcakKEF`.`Advogado` (`idAdvogado`, `Nome`, `OAB`, `Contato`, `E-mail`, `Sexo`, `Cidade`, `Usuarios_idUsuarios`) VALUES (, 'João Alfredo', '5555', '32115555', 'joao@gmail.com', 'M', 'Fortaleza', DEFAULT);
-INSERT INTO `502IcakKEF`.`Advogado` (`idAdvogado`, `Nome`, `OAB`, `Contato`, `E-mail`, `Sexo`, `Cidade`, `Usuarios_idUsuarios`) VALUES (, 'Daniel Frota', '4444', '32114547', 'daniel@gmail.com', 'M', 'Porto Velho', DEFAULT);
-INSERT INTO `502IcakKEF`.`Advogado` (`idAdvogado`, `Nome`, `OAB`, `Contato`, `E-mail`, `Sexo`, `Cidade`, `Usuarios_idUsuarios`) VALUES (, 'Roberto Sobrinho', '3333', '44458888', 'rober@gmail.com', 'M', 'Porto Velho', DEFAULT);
-INSERT INTO `502IcakKEF`.`Advogado` (`idAdvogado`, `Nome`, `OAB`, `Contato`, `E-mail`, `Sexo`, `Cidade`, `Usuarios_idUsuarios`) VALUES (, 'Maria da Silva', '9999', '32225555', 'maria@gmail.com', 'F', 'Candeias', DEFAULT);
-INSERT INTO `502IcakKEF`.`Advogado` (`idAdvogado`, `Nome`, `OAB`, `Contato`, `E-mail`, `Sexo`, `Cidade`, `Usuarios_idUsuarios`) VALUES (, 'Juliana Alves', '8766', '32115447', 'ju@gmail.com', 'F', 'Porto Velho', DEFAULT);
-
-COMMIT;
-

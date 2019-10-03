@@ -16,7 +16,7 @@ INSERT INTO `Usuarios` (`idUsuarios`, `email`, `senha`) VALUES
 (13, 'rtrf@lkjh', '26565');
 
 # INSERINDO ADVOGADOS
-INSERT INTO `502IcakKEF`.`Advogado` (`idAdvogado`, `Nome`, `OAB`, `Contato`, `E-mail`, `Sexo`, `Cidade`, `Usuários_idUsuários`) VALUES
+INSERT INTO `502IcakKEF`.`Advogado` (`idAdvogado`, `Nome`, `OAB`, `Contato`, `E-mail`, `Sexo`, `Cidade`, `Usuarios_idUsuarios`) VALUES
 (1, 'Thaís Barbosa Dias', '6684', '695485-5614', 'ThaisBarbosaDias@dayrep.com ', 'F', 'Porto Velho', 1),
 (2, 'Kauan Gomes', '5809', '5997-6923', 'kauancastrogomes@einrot.com', 'M', 'Porto Velho', 2),
 (3, 'Manuela Castro', '6175', '5094-9230', 'manuelaaraujocastro@jourrapide.com', 'F', 'Vilhena', 3),
@@ -29,7 +29,7 @@ INSERT INTO `502IcakKEF`.`Advogado` (`idAdvogado`, `Nome`, `OAB`, `Contato`, `E-
 (10, 'Juliana Alves', '8766', '32115447', 'ju@gmail.com', 'F', 'Porto Velho', 10);
 
 # INSERINDO SERVIDORES
-INSERT INTO `502IcakKEF`.`Servidor` (`idServidor`, `Nome`, `Matricula`, `Escala de Serviço`, `Cargos_idCargos`, `Usuarios_idUsuarios`, `Comissao_idComissao`, `Sexo`, `Cidade`) VALUES
+INSERT INTO `502IcakKEF`.`Servidor` (`idServidor`, `Nome`, `Matricula`, `Escala de Servico`, `Cargos_idCargos`, `Usuarios_idUsuarios`, `Comissao_idComissao`, `Sexo`, `Cidade`) VALUES
 (DEFAULT, 'Alex', '300456816', 'A', DEFAULT, DEFAULT, DEFAULT, NULL, NULL);
 (DEFAULT, 'Gustavo', '300554667', 'A', DEFAULT, DEFAULT, DEFAULT, NULL, NULL);
 (DEFAULT, 'Bruno', '300545267', 'B', DEFAULT, DEFAULT, DEFAULT, NULL, NULL);
@@ -53,4 +53,17 @@ INSERT INTO `502IcakKEF`.`Cargos` (`idCargos`, `idCargos_pai`, `Cargos`, `Descri
 (13, 12, 'Membros de Comissão', NULL);
 
 # INSERINDO COMISSÕES
-INSERT INTO `Comissao` (`idComissao`, `Membros`, `Funcao`) VALUES ('3', '3ª Comissão', 'Diligências'), ('4', '4ª Comissão', 'Instrução de Processos');
+INSERT INTO `Comissao` (`idComissao`, `Membros`, `Funcao`) VALUES
+('1', '1ª Comissão', 'Instrução de Processos');
+('2', '2ª Comissão', 'Instrução de Processos e Diligências');
+('3', '3ª Comissão', 'Diligências');
+('4', '4ª Comissão', 'Instrução de Processos');
+
+# INSERINDO ACUSADOS
+INSERT INTO `Acusado` (`idAcusado`, `Nome`, `Execucao`, `Sexo`, `Nascimento`, `Pai`, `Mãe`, `Idade`) VALUES
+(1, 'Fernando Beiramar', '9223455645678', 'Masculino', '1970-04-04', 'Augusto Beiramar', 'Maria Beiramar', 35),
+(2, 'Marcola da Paz', '00010012456', 'Masculino', '1960-10-09', 'Marcolino da paz', 'Josefa de Alencar', 35),
+(3, 'Alphonse Capone', '10000123456', 'Masculino', '1940-10-20', 'Giusepe garibald', 'Clementina das dores', 49),
+(4, 'Robin Hood', '100000456789', 'Masculino', '1840-10-15', 'Robin whaks', 'slim shaddy', 29),
+(5, 'Bonnie Elizabeth Parker', '102222123456', 'Feminino', '1910-10-01', 'Piter Parker ', 'Elizabeth Parker ', 25),
+(6, 'Clyde Chestnut Barrow', '1234555640000', 'Masculino', '1909-03-24', 'Joel Chestnut Barrow', 'margaret Chestnut Barrow', 27);
