@@ -39,7 +39,7 @@ INSERT INTO `502IcakKEF`.`Advogado` (`idAdvogado`, `Nome`, `OAB`, `Contato`, `E-
 # INSERINDO CARGOS
 INSERT INTO `502IcakKEF`.`Cargos` (`idCargos`, `idCargos_pai`, `Cargos`, `Descricao`) VALUES
 (NULL, 1, 'Governador', 'cargo máximo do Estado'),
-(NULL, 1, 'Secretário de Estado', 'cargo máximo de uma secretaria'),
+(NULL, 1, 'Secretário de Estado', 'badeco do governador'),
 (NULL, 2, 'Coordenador', 'badeco do secretário'),
 (NULL, 3, 'Gerente Regional', 'badeco do coordenador'),
 (NULL, 3, 'Diretor Geral', 'badeco do gerente regional e do coordenador'),
@@ -61,12 +61,12 @@ INSERT INTO `Comissao` (`idComissao`, `Comissao`, `Funcao`) VALUES
 
 # INSERINDO ACUSADOS
 INSERT INTO `Acusado` (`idAcusado`, `Nome`, `Execucao`, `Sexo`, `Nascimento`, `Pai`, `Mae`, `Idade`) VALUES
-(NULL, 'Fernando Beiramar', '9223455645678', 'Masculino', '1970-04-04', 'Augusto Beiramar', 'Maria Beiramar', 35),
-(NULL, 'Marcola da Paz', '00010012456', 'Masculino', '1960-10-09', 'Marcolino da paz', 'Josefa de Alencar', 35),
-(NULL, 'Alphonse Capone', '10000123456', 'Masculino', '1940-10-20', 'Giusepe garibald', 'Clementina das dores', 49),
-(NULL, 'Robin Hood', '100000456789', 'Masculino', '1840-10-15', 'Robin whaks', 'slim shaddy', 29),
-(NULL, 'Bonnie Elizabeth Parker', '102222123456', 'Feminino', '1910-10-01', 'Piter Parker ', 'Elizabeth Parker ', 25),
-(NULL, 'Clyde Chestnut Barrow', '1234555640000', 'Masculino', '1909-03-24', 'Joel Chestnut Barrow', 'margaret Chestnut Barrow', 27);
+(NULL, 'Fernando Beiramar', '9223455645678', 'M', '1970-04-04', 'Augusto Beiramar', 'Maria Beiramar', 35),
+(NULL, 'Marcola da Paz', '00010012456', 'M', '1960-10-09', 'Marcolino da paz', 'Josefa de Alencar', 35),
+(NULL, 'Alphonse Capone', '10000123456', 'M', '1940-10-20', 'Giusepe garibald', 'Clementina das dores', 49),
+(NULL, 'Robin Hood', '100000456789', 'M', '1840-10-15', 'Robin whaks', 'slim shaddy', 29),
+(NULL, 'Bonnie Elizabeth Parker', '102222123456', 'F', '1910-10-01', 'Piter Parker ', 'Elizabeth Parker ', 25),
+(NULL, 'Clyde Chestnut Barrow', '1234555640000', 'M', '1909-03-24', 'Joel Chestnut Barrow', 'margaret Chestnut Barrow', 27);
 
 # INSERINDO ASSUNTO 
 INSERT INTO `Assunto` (`idAssunto`, `Assunto`) VALUES
@@ -85,8 +85,13 @@ INSERT INTO `502IcakKEF`.`Servidor` (`idServidor`, `Nome`, `Matricula`, `Escala 
 (NULL, 'Alex', '300456816', 'A', 12, 12, 1, 'M', 'Porto Velho'),
 (NULL, 'Gustavo', '300554667', 'A', 12, 13, 2, 'M', 'Porto Velho'),
 (NULL, 'Bruno', '300545267', 'B', 13, 14, 1, 'M', 'Porto Velho'),
-(NULL, 'Felipe', '300451919', 'C', 13, 15, 1, 'M', 'Porto Velho'),
-(NULL, 'Davi', '300017995', 'D', 13, 16, 2, 'M', 'Porto Velho');
+(NULL, 'Felipe', '300451919', 'C', 9, 15, NULL, 'M', 'Porto Velho'),
+(NULL, 'Aroldo', '300545267', 'B', 9, 16, NULL, 'M', 'Vilhena'),
+(NULL, 'Márcia', '300451919', 'C', 13, 17, 1, 'F', 'Porto Velho'),
+(NULL, 'Aline', '300545267', 'B', 9, 18, NULL, 'F', 'Vilhena'),
+(NULL, 'Letícia', '300451919', 'C', 9, 19, NULL, 'F', 'Porto Velho'),
+(NULL, 'Davi', '300017995', 'D', 13, 20, 2, 'M', 'Porto Velho');
+
 
 # INSERINDO AUDIÊNCIAS
 INSERT INTO `Audiencia` (`idAudiencia`, `Data`, `Hora`, `Realizada`) VALUES
