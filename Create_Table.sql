@@ -77,7 +77,6 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Processo_Disciplinar` (
   `Processo_SEI` VARCHAR(45) NOT NULL,
   `Numero_PADI` VARCHAR(45) NOT NULL,
   `Relatorio_Seg` VARCHAR(45) NULL,
-  `Comissao` VARCHAR(45) NULL,
   `Resultado` VARCHAR(45) NULL,
   `Comissao_idComissao` INT NOT NULL,
   PRIMARY KEY (`idProcesso_Disciplinar`, `Comissao_idComissao`),
