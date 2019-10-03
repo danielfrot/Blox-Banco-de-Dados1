@@ -77,10 +77,7 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Processo_Disciplinar` (
   `Processo_SEI` VARCHAR(45) NOT NULL,
   `Numero_PADI` VARCHAR(45) NOT NULL,
   `Relatorio_Seg` VARCHAR(45) NULL,
-  `Acusados` VARCHAR(45) NOT NULL,
-  `Assunto` VARCHAR(45) NOT NULL,
   `Comissao` VARCHAR(45) NULL,
-  `Defesa` VARCHAR(45) NULL,
   `Resultado` VARCHAR(45) NULL,
   `Comissao_idComissao` INT NOT NULL,
   PRIMARY KEY (`idProcesso_Disciplinar`, `Comissao_idComissao`),
@@ -127,6 +124,7 @@ CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Acusado` (
   `Nascimento` DATE NULL,
   `Pai` VARCHAR(45) NULL,
   `Mae` VARCHAR(45) NULL,
+  `Idade` INT NULL,
   PRIMARY KEY (`idAcusado`))
 ENGINE = InnoDB;
 
@@ -136,7 +134,6 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Assunto` (
   `idAssunto` INT NOT NULL AUTO_INCREMENT,
   `Assunto` VARCHAR(45) NOT NULL,
-  `Descricao` VARCHAR(45) NULL,
   PRIMARY KEY (`idAssunto`))
 ENGINE = InnoDB;
 
@@ -229,7 +226,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Audiencia` (
   `idAudiencia` INT NOT NULL AUTO_INCREMENT,
-  `Data e Hora` VARCHAR(45) NULL,
+  `Data` DATE NOT NULL,
+  `Hora` TIME NULL,
   `Realizada` TINYINT NULL,
   PRIMARY KEY (`idAudiencia`))
 ENGINE = InnoDB;
