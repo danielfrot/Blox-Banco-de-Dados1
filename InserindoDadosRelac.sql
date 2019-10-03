@@ -33,6 +33,9 @@ INSERT INTO `Comissao_has_Audiencia` (`Comissao_idComissao`, `Audiencia_idAudien
 (1, 2),
 (1, 4),
 (1, 6),
+(2, 2),
+(1, 1),
+(1, 3),
 (3, 3),
 (4, 4);
 

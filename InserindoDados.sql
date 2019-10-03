@@ -57,7 +57,8 @@ INSERT INTO `Comissao` (`idComissao`, `Comissao`, `Funcao`) VALUES
 (NULL, '1ª Comissão', 'Instrução de Processos'),
 (NULL, '2ª Comissão', 'Instrução de Processos e Diligências'),
 (NULL, '3ª Comissão', 'Diligências'),
-(NULL, '4ª Comissão', 'Instrução de Processos');
+(NULL, '4ª Comissão', 'Instrução de Processos'),
+(NULL, 'Sem comissão', 'servidor de unidade');
 
 # INSERINDO ACUSADOS
 INSERT INTO `Acusado` (`idAcusado`, `Nome`, `Execucao`, `Sexo`, `Nascimento`, `Pai`, `Mae`, `Idade`) VALUES
@@ -85,11 +86,11 @@ INSERT INTO `502IcakKEF`.`Servidor` (`idServidor`, `Nome`, `Matricula`, `Escala 
 (NULL, 'Alex', '300456816', 'A', 12, 12, 1, 'M', 'Porto Velho'),
 (NULL, 'Gustavo', '300554667', 'A', 12, 13, 2, 'M', 'Porto Velho'),
 (NULL, 'Bruno', '300545267', 'B', 13, 14, 1, 'M', 'Porto Velho'),
-(NULL, 'Felipe', '300451919', 'C', 9, 15, NULL, 'M', 'Porto Velho'),
-(NULL, 'Aroldo', '300545267', 'B', 9, 16, NULL, 'M', 'Vilhena'),
+(NULL, 'Felipe', '300451919', 'C', 9, 15, 5, 'M', 'Porto Velho'),
+(NULL, 'Aroldo', '300545267', 'B', 9, 16, 5, 'M', 'Vilhena'),
 (NULL, 'Márcia', '300451919', 'C', 13, 17, 1, 'F', 'Porto Velho'),
-(NULL, 'Aline', '300545267', 'B', 9, 18, NULL, 'F', 'Vilhena'),
-(NULL, 'Letícia', '300451919', 'C', 9, 19, NULL, 'F', 'Porto Velho'),
+(NULL, 'Aline', '300545267', 'B', 9, 18, 5, 'F', 'Vilhena'),
+(NULL, 'Letícia', '300451919', 'C', 9, 19, 5, 'F', 'Porto Velho'),
 (NULL, 'Davi', '300017995', 'D', 13, 20, 2, 'M', 'Porto Velho');
 
 
@@ -98,11 +99,20 @@ INSERT INTO `Audiencia` (`idAudiencia`, `Data`, `Hora`, `Realizada`) VALUES
 (NULL, '2019-10-14', '08:00:00', NULL),
 (NULL, '2019-10-15', '08:00:00', NULL),
 (NULL, '2019-10-18', '08:00:00', NULL),
+(NULL, '2019-10-14', '09:30:00', NULL),
+(NULL, '2019-10-15', '08:30:00', NULL),
+(NULL, '2019-10-18', '10:40:00', NULL),
 (NULL, '2019-10-20', '08:00:00', NULL),
 (NULL, '2019-10-25', '08:00:00', NULL),
 (NULL, '2019-11-05', '08:00:00', NULL),
 (NULL, '2019-11-06', '08:00:00', NULL),
 (NULL, '2019-11-10', '08:00:00', NULL),
+(NULL, '2019-11-05', '09:00:00', NULL),
+(NULL, '2019-11-06', '09:00:00', NULL),
+(NULL, '2019-11-10', '09:00:00', NULL),
+(NULL, '2019-11-05', '10:00:00', NULL),
+(NULL, '2019-11-06', '10:00:00', NULL),
+(NULL, '2019-11-10', '10:00:00', NULL),
 (NULL, '2019-11-12', '08:00:00', NULL);
 
 # INSERINDO TESTEMUNHAS
