@@ -51,7 +51,7 @@ CREATE INDEX `fk_Cargos_Cargos1_idx` ON `502IcakKEF`.`Cargos` (`idCargos_pai` AS
 -- Table `502IcakKEF`.`Usuarios`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Usuarios` (
-  `idUsuarios` INT NOT NULL,
+  `idUsuarios` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NULL,
   `senha` VARCHAR(45) NULL,
   PRIMARY KEY (`idUsuarios`))
@@ -275,7 +275,7 @@ CREATE INDEX `fk_Processo_Disciplinar_has_Assunto_Processo_idx` ON `502IcakKEF`.
 -- Table `502IcakKEF`.`Testemunha`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Testemunha` (
-  `idTestemunha` INT NOT NULL,
+  `idTestemunha` INT NOT NULL AUTO_INCREMENT,
   `Testemunhacol` VARCHAR(45) NULL,
   `Servidor` VARCHAR(45) NULL,
   PRIMARY KEY (`idTestemunha`))
@@ -286,7 +286,7 @@ ENGINE = InnoDB;
 -- Table `502IcakKEF`.`Audiencia`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `502IcakKEF`.`Audiencia` (
-  `idAudiencia` INT NOT NULL,
+  `idAudiencia` INT NOT NULL AUTO_INCREMENT,
   `Data e Hora` VARCHAR(45) NULL,
   `Realizada` TINYINT NULL,
   PRIMARY KEY (`idAudiencia`))
