@@ -99,7 +99,7 @@ INSERT INTO `Audiencia` (`idAudiencia`, `Data`, `Hora`, `Realizada`) VALUES
 (NULL, '2019-10-14', '08:00:00', NULL),
 (NULL, '2019-10-15', '08:00:00', NULL),
 (NULL, '2019-10-18', '08:00:00', NULL),
-(NULL, '2019-10-14', '09:30:00', NULL),
+(NULL, '2019-10-15', '09:30:00', NULL),
 (NULL, '2019-10-15', '08:30:00', NULL),
 (NULL, '2019-10-18', '10:40:00', NULL),
 (NULL, '2019-10-20', '08:00:00', NULL),

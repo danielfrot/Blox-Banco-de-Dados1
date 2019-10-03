@@ -31,6 +31,7 @@ INSERT INTO `Acusado_has_Audiencia` (`Acusado_idAcusado`, `Audiencia_idAudiencia
 INSERT INTO `Comissao_has_Audiencia` (`Comissao_idComissao`, `Audiencia_idAudiencia`) VALUES
 (2, 1),
 (1, 2),
+(1, 5),
 (1, 4),
 (1, 6),
 (2, 2),
